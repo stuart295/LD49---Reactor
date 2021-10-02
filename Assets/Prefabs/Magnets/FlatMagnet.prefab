@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3034877703579831759}
   - component: {fileID: 3034877703579831744}
   - component: {fileID: 3034877703579831756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlatMagnet
   m_TagString: Magnet
   m_Icon: {fileID: 0}
@@ -122,4 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c004f337c4f27a34e924ff9d9bdd6f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyable: 1
   strengthModifier: 1

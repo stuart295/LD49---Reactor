@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateEnergyDisplay() {
         energyBar.fillAmount = energy.GetPercentAmount();
-        energyText.text = string.Format("{0} / {1}", energy.CurrentEnergy, energy.required);
+        energyText.text = string.Format("{0:0.00} / {1}", energy.CurrentEnergy, energy.required);
         demandText.text = string.Format("Demand: {0}", energy.demandDescription);
     }
 

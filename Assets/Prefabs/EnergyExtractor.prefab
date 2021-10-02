@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6135689480795603893}
   - component: {fileID: 6135689480795603881}
   - component: {fileID: 1863233262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnergyExtractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

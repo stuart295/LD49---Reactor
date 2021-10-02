@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8737576004384467458}
   - component: {fileID: 3267290627462408816}
   - component: {fileID: 5000520314548788213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StrangeParticle
   m_TagString: Particle
   m_Icon: {fileID: 0}

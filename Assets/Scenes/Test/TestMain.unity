@@ -1910,9 +1910,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3267290627462408816, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5000520314548788212, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
       propertyPath: m_Name
       value: StrangeParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000520314548788212, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6863875778493198078, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
       propertyPath: m_RootOrder
@@ -1956,6 +1964,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863875778493198078, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737576004384467458, guid: 74ba83d8e4d8dd641b0000421b41abf6, type: 3}
+      propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

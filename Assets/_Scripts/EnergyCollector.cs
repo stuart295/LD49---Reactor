@@ -29,7 +29,9 @@ public class EnergyCollector : Placable
     private void SetupCollectionZone() {
         collectionZone.gameObject.SetActive(true);
 
-        RaycastHit2D hit = Physics2D.Raycast(collectionZone.position, collectionZone.up);
+        int mask = LayerMask.GetMask( new string[] {"Building" });
+
+        RaycastHit2D hit = Physics2D.Raycast(collectionZone.position, collectionZone.up, maxLength,  mask);
 
         float scale = maxLength;
 

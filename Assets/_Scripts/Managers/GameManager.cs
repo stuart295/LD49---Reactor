@@ -64,4 +64,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Lose() {
+        //TODO
+        StartCoroutine(DelayedReset());
+    }
+
+    private IEnumerator DelayedReset() {
+        yield return new WaitForSeconds(3f);
+        Reset();
+    }
+
 }

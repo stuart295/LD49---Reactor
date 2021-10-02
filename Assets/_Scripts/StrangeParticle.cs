@@ -11,6 +11,7 @@ public class StrangeParticle : Placable
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
         OnPlaced();
     }
 
@@ -28,18 +29,32 @@ public class StrangeParticle : Placable
             if (magnets == null) {
                 FindMagnets();
             }
+
+            SetLayer("Particle");
+
+            if (rb.isKinematic) rb.isKinematic = false;
+
         }
         else {
             magnets = null;
+            SetLayer("ParticlePlacement");
         }
     }
 
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (gm.Playing)
+        if (gm.Playing) {
             UpdateForces();
+        }   
     }
+
+    private void SetLayer(string name) {
+        int layer = LayerMask.NameToLayer(name);
+        if (gameObject.layer != layer)
+            gameObject.layer = layer;
+    }
+
 
     private void UpdateForces() {
         if (magnets == null) return;
@@ -56,5 +71,22 @@ public class StrangeParticle : Placable
     public override void ResetState() {
         base.ResetState();
         rb.velocity = Vector3.zero ;
+        gameObject.SetActive(true);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+        if (!gm.Playing) return;
+        
+        if (collision.collider.tag.Equals("Particle")) {
+            //TODO
+        }
+        else {
+            Debug.Log("Particle collided!");
+            //TODO explode
+            gameObject.SetActive(false);
+            gm.Lose();
+        }
     }
 }
