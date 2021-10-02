@@ -4,8 +4,12 @@ using UnityEngine;
 public class StrangeParticle : Placable
 {
 
+    public float maxVel = 100f;
+
     private List<Magnet> magnets;
     private Rigidbody2D rb;
+
+   
 
 
     // Start is called before the first frame update
@@ -66,6 +70,10 @@ public class StrangeParticle : Placable
         }
 
         rb.AddForce(netForce);
+
+        if (rb.velocity.magnitude > maxVel) {
+            rb.velocity = rb.velocity.normalized * maxVel;
+        }
     }
 
     public override void ResetState() {

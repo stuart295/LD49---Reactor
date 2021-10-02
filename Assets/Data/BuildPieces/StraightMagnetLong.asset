@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630237d077791b540a15050b815d4434, type: 3}
+  m_Name: StraightMagnetLong
+  m_EditorClassIdentifier: 
+  pieceName: Straight magnet
+  icon: {fileID: 21300000, guid: abe5273da9cc1e543b9f2e76282a94b8, type: 3}
+  prefab: {fileID: 5574751097310501261, guid: f1d43a289da171944816e6dcf48abcb7, type: 3}

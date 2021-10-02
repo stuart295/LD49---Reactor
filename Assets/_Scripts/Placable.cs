@@ -17,6 +17,11 @@ public class Placable : MonoBehaviour
     }
 
 
+    protected virtual void Update() {
+        //Do nothing
+    }
+
+
     public virtual void OnPlaced() {
         initialPos = transform.position;
         initialRot = transform.rotation;
