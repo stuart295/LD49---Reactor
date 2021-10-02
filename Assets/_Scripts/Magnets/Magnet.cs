@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Magnet : MonoBehaviour
+public abstract class Magnet : Placable
 {
 
     public float strengthModifier = 1f;
 
-    protected GameManager gm;
     private bool active = true;
 
     protected bool Active { get => active; set => active = value; }
 
 
-    // Start is called before the first frame update
-    public virtual void Awake()
-    {
-        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-    }
+ 
 
     // Update is called once per frame
     public virtual void Update()

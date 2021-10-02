@@ -7,7 +7,7 @@ public class FlatMagnet : Magnet
 
     private Collider2D col;
 
-    public override void Awake() {
+    protected override void Awake() {
         base.Awake();
         col = GetComponent<Collider2D>();
     }

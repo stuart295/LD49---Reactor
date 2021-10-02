@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,25 @@ public class GameManager : MonoBehaviour
     [Header("Debug")]
     public bool debugMode = true;
 
-    private bool paused = true;
+    private bool playing = false;
+    private UIManager ui;
+    private BuildManager build;
 
-    public bool Paused { get => paused; set => paused = value; }
+    private List<Placable> placables;
+    
 
+    public bool Playing { get => playing; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        ui = GetComponent<UIManager>();
+        build = GetComponent<BuildManager>();
+        placables = new List<Placable>();
+    }
+
+    internal void DeregisterPlacable(Placable placable) {
+        placables.Remove(placable);
     }
 
     // Update is called once per frame
@@ -26,4 +37,27 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void RegisterPlacable(Placable placable) {
+        if (!placables.Contains(placable))
+            placables.Add(placable);
+    }
+
+
+    public void Play() {
+        playing = true;
+        ui.OnPlay();
+        build.OnPlay();
+    }
+
+    public void Reset() {
+        playing = false;
+        ui.OnReset();
+        build.OnReset();
+
+        foreach (Placable placable in placables) {
+            placable.ResetState();
+        }
+    }
+
 }
