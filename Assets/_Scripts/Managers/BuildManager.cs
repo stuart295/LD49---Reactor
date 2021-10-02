@@ -56,7 +56,7 @@ public class BuildManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             Placable placable = CheckObjectClick();
             if (placable != null) {
-                placable.OnRemoved();
+                placable.OnMove();
                 ui.SetPlayEnabled(false);
                 placingPieceGo = placable.gameObject;
                 placingPiece = null;

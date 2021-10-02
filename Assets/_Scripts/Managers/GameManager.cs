@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private bool playing = false;
     private UIManager ui;
     private BuildManager build;
+    private EnergyManager energy;
 
     private List<Placable> placables;
     
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         ui = GetComponent<UIManager>();
         build = GetComponent<BuildManager>();
+        energy = GetComponent<EnergyManager>();
         placables = new List<Placable>();
     }
 
@@ -48,12 +50,14 @@ public class GameManager : MonoBehaviour
         playing = true;
         ui.OnPlay();
         build.OnPlay();
+        energy.OnPlay();
     }
 
     public void Reset() {
         playing = false;
         ui.OnReset();
         build.OnReset();
+        energy.OnReset();
 
         foreach (Placable placable in placables) {
             placable.ResetState();

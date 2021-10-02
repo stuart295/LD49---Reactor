@@ -23,6 +23,10 @@ public class Placable : MonoBehaviour
         gm.RegisterPlacable(this);
     }
 
+    public virtual void OnMove() {
+        OnRemoved();
+    }
+
     public void OnRemoved() {
         gm.DeregisterPlacable(this);
     }

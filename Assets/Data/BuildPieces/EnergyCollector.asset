@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 630237d077791b540a15050b815d4434, type: 3}
-  m_Name: StraightMagnet
+  m_Name: EnergyCollector
   m_EditorClassIdentifier: 
-  pieceName: Straight magnet
-  icon: {fileID: 21300000, guid: abe5273da9cc1e543b9f2e76282a94b8, type: 3}
-  prefab: {fileID: 3034877703579831745, guid: 640a3eb27e48cde4b8797cd66fbafda2, type: 3}
+  pieceName: Energy collector
+  icon: {fileID: 21300000, guid: 0b67fd16c9f74904a80b2487be769a3c, type: 3}
+  prefab: {fileID: 6135689480795603894, guid: b48551e086046bd4fa288f8d5e44216c, type: 3}

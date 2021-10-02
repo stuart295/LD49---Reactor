@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,25 +15,36 @@ public class UIManager : MonoBehaviour
     public Transform playButton;
     public Transform resetButton;
 
+    [Header("Energy panel")]
+    public Image energyBar;
+    public TMP_Text energyText;
+    public TMP_Text demandText;
+
     private GameManager gm;
     private BuildManager build;
+    private EnergyManager energy;
 
     private List<Button> buildButtons;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         build = GetComponent<BuildManager>();
         gm = GetComponent<GameManager>();
+        energy = GetComponent<EnergyManager>();
 
         SetupBuildMenu();
     }
 
 
     // Update is called once per frame
-    void Update()
-    {
-       
+    void Update() {
+        UpdateEnergyDisplay();
+    }
+
+    private void UpdateEnergyDisplay() {
+        energyBar.fillAmount = energy.GetPercentAmount();
+        energyText.text = string.Format("{0} / {1}", energy.CurrentEnergy, energy.required);
+        demandText.text = string.Format("Demand: {0}", energy.demandDescription);
     }
 
     private void SetupBuildMenu() {
