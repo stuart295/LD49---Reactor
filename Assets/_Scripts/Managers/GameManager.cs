@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         build = GetComponent<BuildManager>();
         energy = GetComponent<EnergyManager>();
         placables = new List<Placable>();
+        Time.fixedDeltaTime = 0.005f;
     }
 
     internal void DeregisterPlacable(Placable placable) {

@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         gm = GetComponent<GameManager>();
         gm.Play();
+        gm.enabled = false;
     }
 
     

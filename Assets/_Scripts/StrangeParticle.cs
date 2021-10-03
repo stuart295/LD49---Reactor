@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ public class StrangeParticle : Placable
     public float maxVel = 100f;
     public float particleCollisionForce = 1f;
 
+    public float pitchChangeAmount = 0.2f;
+    public float basePitch = 1f;
+
     public GameObject deathEffectPref;
     public GameObject collideEffectPref;
 
@@ -14,7 +18,7 @@ public class StrangeParticle : Placable
     private Rigidbody2D rb;
     private EnergyManager energy;
 
-
+    private AudioSource sound;
 
    
 
@@ -25,7 +29,7 @@ public class StrangeParticle : Placable
         rb.isKinematic = true;
         energy = gm.GetComponent<EnergyManager>();
         OnPlaced();
-        Time.fixedDeltaTime = 0.005f;
+        sound = GetComponent<AudioSource>();
     }
 
 
@@ -48,11 +52,21 @@ public class StrangeParticle : Placable
             if (rb.isKinematic) rb.isKinematic = false;
 
 
+            
+
         }
         else {
             magnets = null;
             SetLayer("ParticlePlacement");
         }
+
+        UpdateSound();
+    }
+
+    private void UpdateSound() {
+
+        float vel = rb.velocity.magnitude / maxVel;
+        sound.pitch = basePitch + vel * pitchChangeAmount;
     }
 
 

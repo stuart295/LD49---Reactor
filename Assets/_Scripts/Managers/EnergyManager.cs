@@ -29,7 +29,7 @@ public class EnergyManager : MonoBehaviour
     public void AddEnergy(float amount) {
         if (gm.Playing) {
             currentEnergy += amount;
-            if (currentEnergy > required) {
+            if (currentEnergy > required && gm.enabled) {
                 gm.Win();
             }
         }
