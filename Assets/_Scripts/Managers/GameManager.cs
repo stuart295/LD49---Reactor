@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private List<Placable> placables;
 
+    private bool levelCompleted = false;
+
 
     public bool Playing { get => playing; }
 
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset() {
         playing = false;
+        ui.HideBanner();
         ui.OnReset();
         build.OnReset();
         energy.OnReset();
@@ -67,11 +70,19 @@ public class GameManager : MonoBehaviour
     }
 
     public void Lose() {
+        if (levelCompleted) return;
         //TODO
+        ui.ShowBanner("Failed!");
+        ui.SetPlayPanelEnabled(false);
         StartCoroutine(DelayedReset());
     }
 
     public void Win() {
+        if (levelCompleted) return;
+
+        levelCompleted = true;
+        ui.SetPlayPanelEnabled(false);
+        ui.ShowBanner("Level Complete!");
         //TODO
     }
 

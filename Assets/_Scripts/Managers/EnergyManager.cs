@@ -38,7 +38,7 @@ public class EnergyManager : MonoBehaviour
     public void AddEnergyFromVelocity(Vector3 vel) {
         if (!gm.Playing) return;
 
-        currentEnergy += vel.magnitude * velConversionFactor;
+        AddEnergy(vel.magnitude * velConversionFactor);
     }
 
     public float GetPercentAmount() {

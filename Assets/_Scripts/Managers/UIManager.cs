@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text energyText;
     public TMP_Text demandText;
 
+    [Header("End Banner")]
+    public TMP_Text winLoseBanner;
+
     private GameManager gm;
     private BuildManager build;
     private EnergyManager energy;
@@ -70,17 +73,32 @@ public class UIManager : MonoBehaviour
         playButton.gameObject.SetActive(true);
         resetButton.gameObject.SetActive(false);
         SetBuildEnabled(true);
+        SetPlayPanelEnabled(true);
     }
 
     public void SetPlayEnabled(bool enabled) {
         playButton.GetComponent<Button>().interactable = enabled;
     }
 
+    public void SetPlayPanelEnabled(bool enabled) {
+        playButton.GetComponent<Button>().interactable = enabled;
+        resetButton.GetComponent<Button>().interactable = enabled;
+    }
+
     public void SetBuildEnabled(bool enabled) {
         foreach (Button btn in buildButtons) {
             btn.interactable = enabled;
         }
+    }
 
+    public void ShowBanner(string text) {
+        winLoseBanner.text = text;
+        winLoseBanner.gameObject.SetActive(true);
+        winLoseBanner.GetComponent<Animation>().Play();
+    }
+
+    public void HideBanner() {
+        winLoseBanner.gameObject.SetActive(false);
     }
 
 }
