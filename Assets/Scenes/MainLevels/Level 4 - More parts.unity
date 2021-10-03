@@ -1723,7 +1723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velConversionFactor: 0.001
-  required: 100
+  collisionEnergyFactor: 1
+  required: 15
   demand: 3
   demandDescription: Low
 --- !u!1 &1204019655
