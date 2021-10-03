@@ -131,12 +131,12 @@ public class GameManager : MonoBehaviour
 
     private void NextLevel() {
         int curScene = SceneManager.GetActiveScene().buildIndex;
-        if (curScene < SceneManager.sceneCount - 1) {
+        if (curScene < SceneManager.sceneCountInBuildSettings - 1) {
             SceneManager.LoadScene(curScene + 1);
         }
         else {
             //Main Menu
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("MainMenu");
         }
 
         

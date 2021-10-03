@@ -123,6 +123,8 @@ public class StrangeParticle : Placable
 
             Vector3 center = (transform.position + other.transform.position) / 2f;
             Instantiate(collideEffectPref, center, Quaternion.identity);
+
+            energy.AddEnergyFromCollision(rb.velocity - otherVel);
         }
     }
 

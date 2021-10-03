@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyable: 1
-  strengthModifier: 1
+  movable: 1
+  strengthModifier: 2
 --- !u!1001 &829712200
 PrefabInstance:
   m_ObjectHideFlags: 0

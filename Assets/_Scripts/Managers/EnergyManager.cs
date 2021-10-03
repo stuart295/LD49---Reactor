@@ -6,7 +6,7 @@ public class EnergyManager : MonoBehaviour
 {
 
     public float velConversionFactor = 1f;
-    public float maxEnergy = 100f;
+    public float collisionEnergyFactor = 1f;
     public float required = 10f;
     public float demand = 0f;
     public string demandDescription = "Low";
@@ -39,6 +39,12 @@ public class EnergyManager : MonoBehaviour
         if (!gm.Playing) return;
 
         AddEnergy(vel.magnitude * velConversionFactor);
+    }
+
+    public void AddEnergyFromCollision(Vector3 vel) {
+        if (!gm.Playing) return;
+
+        AddEnergy(vel.magnitude * collisionEnergyFactor);
     }
 
     public float GetPercentAmount() {
