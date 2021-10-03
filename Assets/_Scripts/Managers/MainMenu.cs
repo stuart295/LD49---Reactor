@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Sandbox() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Sandbox");
     }
 
 
