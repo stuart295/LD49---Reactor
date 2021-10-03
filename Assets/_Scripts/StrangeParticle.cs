@@ -8,6 +8,7 @@ public class StrangeParticle : Placable
 
     private List<Magnet> magnets;
     private Rigidbody2D rb;
+    private EnergyManager energy;
 
    
 
@@ -16,7 +17,9 @@ public class StrangeParticle : Placable
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
+        energy = gm.GetComponent<EnergyManager>();
         OnPlaced();
+        Time.fixedDeltaTime = 0.005f;
     }
 
 
@@ -38,6 +41,7 @@ public class StrangeParticle : Placable
 
             if (rb.isKinematic) rb.isKinematic = false;
 
+
         }
         else {
             magnets = null;
@@ -50,6 +54,7 @@ public class StrangeParticle : Placable
     void FixedUpdate() {
         if (gm.Playing) {
             UpdateForces();
+            energy.AddEnergyFromVelocity(rb.velocity);
         }   
     }
 

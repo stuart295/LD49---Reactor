@@ -27,7 +27,7 @@ public abstract class Magnet : Placable
     protected Vector3 GetRadialForce(Vector3 particlePos, Vector3 magnetPos) {
         Vector3 dispVec = particlePos - magnetPos;
         Vector3 dir = dispVec.normalized;
-        float magnitude = GetMagnetForce() / Mathf.Pow(dispVec.magnitude, 2);
+        float magnitude = GetMagnetForce() / Mathf.Pow(dispVec.magnitude * gm.distanceModifier, 2);
         return dir * magnitude;
     }
 

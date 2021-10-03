@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Accelerator
   icon: {fileID: 21300000, guid: f01350eb31ee3084d8d083d9197b44fb, type: 3}
-  prefab: {fileID: 7281071154613004072, guid: ca01e38389fd8184fb378d4d12440cd4, type: 3}
+  prefab: {fileID: 5734987736968855143, guid: b41815c4aff9d6046bf2f8d8def07fa7, type: 3}

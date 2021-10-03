@@ -15,8 +15,8 @@ public class FlatMagnet : Magnet
     public override Vector3 GetForceVector(Vector3 particlePos) {
         Vector3 closestPoint = col.ClosestPoint(particlePos);
 
-        if (gm.debugMode)
-            Debug.DrawLine(particlePos, closestPoint, Color.red);
+        //if (gm.debugMode)
+        //    Debug.DrawLine(particlePos, closestPoint, Color.red);
 
         return GetRadialForce(particlePos, closestPoint);
     }
