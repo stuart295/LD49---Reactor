@@ -55,7 +55,7 @@ public class BuildManager : MonoBehaviour
         //Move piece
         if (Input.GetMouseButtonDown(0)) {
             Placable placable = CheckObjectClick();
-            if (placable != null) {
+            if (placable != null && placable.movable) {
                 placable.OnMove();
                 ui.SetPlayEnabled(false);
                 placingPieceGo = placable.gameObject;
@@ -67,7 +67,7 @@ public class BuildManager : MonoBehaviour
         //Delete piece
         if (Input.GetMouseButtonDown(1)) {
             Placable placable = CheckObjectClick();
-            if (placable != null && placable.destroyable) {
+            if (placable != null && placable.destroyable ) {
                 placable.OnRemoved();
                 Destroy(placable.gameObject);
             }

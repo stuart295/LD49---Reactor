@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     private List<Button> buildButtons;
 
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         build = GetComponent<BuildManager>();
         gm = GetComponent<GameManager>();
         energy = GetComponent<EnergyManager>();

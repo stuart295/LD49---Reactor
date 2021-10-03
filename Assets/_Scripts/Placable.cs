@@ -6,6 +6,7 @@ public class Placable : MonoBehaviour
 {
 
     public bool destroyable = true;
+    public bool movable = true;
 
     protected Vector3 initialPos;
     protected Quaternion initialRot;

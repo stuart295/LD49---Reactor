@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,12 +84,17 @@ public class GameManager : MonoBehaviour
         levelCompleted = true;
         ui.SetPlayPanelEnabled(false);
         ui.ShowBanner("Level Complete!");
-        //TODO
+        StartCoroutine(DelayedNextLevel());
     }
 
     private IEnumerator DelayedReset() {
         yield return new WaitForSeconds(3f);
         Reset();
+    }
+
+    private IEnumerator DelayedNextLevel() {
+        yield return new WaitForSeconds(3f);
+        NextLevel();
     }
 
     private void OnDrawGizmos() {
@@ -121,5 +127,18 @@ public class GameManager : MonoBehaviour
         }
 
         return netForce;
+    }
+
+    private void NextLevel() {
+        int curScene = SceneManager.GetActiveScene().buildIndex;
+        if (curScene < SceneManager.sceneCount - 1) {
+            SceneManager.LoadScene(curScene + 1);
+        }
+        else {
+            //Main Menu
+            SceneManager.LoadScene(0);
+        }
+
+        
     }
 }
