@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4855,7 +4855,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9626,6 +9626,7 @@ GameObject:
   - component: {fileID: 8737576004384467458}
   - component: {fileID: 3267290627462408816}
   - component: {fileID: 5000520314548788213}
+  - component: {fileID: 840199584}
   m_Layer: 7
   m_Name: StrangeParticle
   m_TagString: Particle
@@ -9707,3 +9708,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyable: 0
   maxVel: 30
+  particleCollisionForce: 1
+  deathEffectPref: {fileID: 4961237842525274414, guid: b4dedaf939a1da246a5ccf4d3c876a70, type: 3}
+  collideEffectPref: {fileID: 1953108824568090156, guid: 7689aa3c0b6232240991327e084b5151, type: 3}
+--- !u!58 &840199584
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000520314548788212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5

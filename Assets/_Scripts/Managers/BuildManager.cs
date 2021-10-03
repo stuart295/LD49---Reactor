@@ -145,7 +145,7 @@ public class BuildManager : MonoBehaviour
         //Position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        placingPieceGo = Instantiate(piece.prefab, SnapToGrid(mousePos), Quaternion.identity);
+        placingPieceGo = Instantiate(piece.prefab, SnapToGrid(mousePos), Quaternion.Euler(0, 0, placeRotation));
         placingPiece = piece;
 
     }

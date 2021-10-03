@@ -5,8 +5,10 @@ public class StrangeParticle : Placable
 {
 
     public float maxVel = 100f;
+    public float particleCollisionForce = 1f;
 
     public GameObject deathEffectPref;
+    public GameObject collideEffectPref;
 
     private List<Magnet> magnets;
     private Rigidbody2D rb;
@@ -101,11 +103,26 @@ public class StrangeParticle : Placable
         if (!gm.Playing) return;
         
         if (collision.collider.tag.Equals("Particle")) {
-            //TODO
+           //Do nothing
         }
         else {
             Debug.Log("Particle collided!");
             Kill();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag.Equals("Particle")) {
+            GameObject other = collision.gameObject;
+            Debug.Log("Particle " + gameObject.name + " collidied " + other.name);
+            Vector3 dir = (other.transform.position - transform.position).normalized;
+            Vector2 otherVel = other.GetComponent<Rigidbody2D>().velocity;
+            float velDiff = (rb.velocity - otherVel).magnitude;
+
+            rb.AddForce(-dir * particleCollisionForce * velDiff, ForceMode2D.Impulse);
+
+            Vector3 center = (transform.position + other.transform.position) / 2f;
+            Instantiate(collideEffectPref, center, Quaternion.identity);
         }
     }
 
