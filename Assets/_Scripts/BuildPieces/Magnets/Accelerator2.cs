@@ -32,6 +32,8 @@ public class Accelerator2 : Magnet
         foreach (RaycastHit2D hit in hits) {
             if (hit.collider.gameObject == gameObject) {
 
+                if (Vector3.Angle(hit.normal, -dispVec.normalized) > 10f) return Vector3.zero;
+
                 Vector3 perpDir = Vector3.Cross(hit.normal, Vector3.forward).normalized;
 
                 return GetRadialForce(particlePos, closestPoint).magnitude * perpDir;
