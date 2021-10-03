@@ -6,9 +6,13 @@ public class StrangeParticle : Placable
 
     public float maxVel = 100f;
 
+    public GameObject deathEffectPref;
+
     private List<Magnet> magnets;
     private Rigidbody2D rb;
     private EnergyManager energy;
+
+
 
    
 
@@ -55,6 +59,10 @@ public class StrangeParticle : Placable
         if (gm.Playing) {
             UpdateForces();
             energy.AddEnergyFromVelocity(rb.velocity);
+
+            if (!IsOnScreen()){
+                Kill();
+            }
         }   
     }
 
@@ -97,9 +105,20 @@ public class StrangeParticle : Placable
         }
         else {
             Debug.Log("Particle collided!");
-            //TODO explode
-            gameObject.SetActive(false);
-            gm.Lose();
+            Kill();
         }
+    }
+
+    private bool IsOnScreen() {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        return screenPos.x > 0f && screenPos.x < Screen.width && screenPos.y > 0f && screenPos.y < Screen.height;
+    }
+
+    public void Kill() {
+        Instantiate(deathEffectPref, transform.position, transform.rotation);
+
+        gameObject.SetActive(false);
+
+        gm.Lose();
     }
 }

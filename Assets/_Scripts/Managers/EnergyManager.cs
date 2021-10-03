@@ -27,8 +27,12 @@ public class EnergyManager : MonoBehaviour
     }
 
     public void AddEnergy(float amount) {
-        if (gm.Playing)
+        if (gm.Playing) {
             currentEnergy += amount;
+            if (currentEnergy > required) {
+                gm.Win();
+            }
+        }
     }
 
     public void AddEnergyFromVelocity(Vector3 vel) {

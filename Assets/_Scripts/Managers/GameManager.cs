@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayedReset());
     }
 
+    public void Win() {
+        //TODO
+    }
+
     private IEnumerator DelayedReset() {
         yield return new WaitForSeconds(3f);
         Reset();
