@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StraightMagnetLong
   m_EditorClassIdentifier: 
   pieceName: Straight magnet
-  icon: {fileID: 21300000, guid: abe5273da9cc1e543b9f2e76282a94b8, type: 3}
+  icon: {fileID: 21300000, guid: defebde337853394f8f9e25a7ef56f08, type: 3}
   prefab: {fileID: 5574751097310501261, guid: f1d43a289da171944816e6dcf48abcb7, type: 3}
